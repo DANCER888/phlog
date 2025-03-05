@@ -5,4 +5,4 @@ set(CMAKE_CXX_STANDARD 23)
 
 add_executable(phlog
         example/main.cpp
-        include/phlog.h)
+        include/phlogger.h)

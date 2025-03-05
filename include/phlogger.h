@@ -15,7 +15,7 @@
 // Enable this option for more vibrant colors if your virtual console supports 256-color mode
 //#define _PHLOG_USE_256_COLORS
 
-namespace phlog
+namespace phlogger
 {
     /*
         Warning levels
@@ -141,26 +141,26 @@ namespace phlog
 
         printf("%s (%s %d)%s ",COLOR_DARK, get_short_filename(file).c_str(), line,COLOR_NONE);
         // Write to file
-        if (phlog::log_file.is_open()) {
+        if (phlogger::log_file.is_open()) {
             switch (logger_level)
             {
             case LOGGER_NONE:
-                phlog::log_file << "[PHLOG]     ";
+                phlogger::log_file << "[PHLOG]     ";
                 break;
             case LOGGER_SUCCESS:
-                phlog::log_file << "[SUCCESS]  ";
+                phlogger::log_file << "[SUCCESS]  ";
                 break;
             case LOGGER_WARNING:
-                phlog::log_file << "[WARNING]  ";
+                phlogger::log_file << "[WARNING]  ";
             break;
             case LOGGER_ERROR:
-                phlog::log_file << "[ERROR]    ";
+                phlogger::log_file << "[ERROR]    ";
                 break;
             case LOGGER_CRITICAL:
-                phlog::log_file << "[CRITICAL] ";
+                phlogger::log_file << "[CRITICAL] ";
                 break;
             default:
-                phlog::log_file << "[" << logger_level << "] ";
+                phlogger::log_file << "[" << logger_level << "] ";
                 break;
             }
 
@@ -186,10 +186,10 @@ namespace phlog
 
 }
 
-#define PHLOG(...) phlog::log(__FILE__,__LINE__,phlog::LOGGER_NONE, __VA_ARGS__)
-#define PHLOG_SUCCESS(...) phlog::log(__FILE__,__LINE__,phlog::LOGGER_SUCCESS, __VA_ARGS__)
-#define PHLOG_WARNING(...) phlog::log(__FILE__,__LINE__,phlog::LOGGER_WARNING, __VA_ARGS__)
-#define PHLOG_ERROR(...) phlog::log(__FILE__,__LINE__,phlog::LOGGER_ERROR, __VA_ARGS__)
-#define PHLOG_CRITICAL(...) phlog::log(__FILE__,__LINE__,phlog::LOGGER_CRITICAL, __VA_ARGS__)
+#define PHLOG(...) phlogger::log(__FILE__,__LINE__,phlogger::LOGGER_NONE, __VA_ARGS__)
+#define PHLOG_SUCCESS(...) phlogger::log(__FILE__,__LINE__,phlogger::LOGGER_SUCCESS, __VA_ARGS__)
+#define PHLOG_WARNING(...) phlogger::log(__FILE__,__LINE__,phlogger::LOGGER_WARNING, __VA_ARGS__)
+#define PHLOG_ERROR(...) phlogger::log(__FILE__,__LINE__,phlogger::LOGGER_ERROR, __VA_ARGS__)
+#define PHLOG_CRITICAL(...) phlogger::log(__FILE__,__LINE__,phlogger::LOGGER_CRITICAL, __VA_ARGS__)
 
 #endif //_PHLOG_H

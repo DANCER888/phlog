@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../include/phlog.h"
+#include "../include/phlogger.h"
 
 int main() {
     PHLOG("yo wassup!!");
